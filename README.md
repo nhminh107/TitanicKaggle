@@ -1,5 +1,5 @@
 # Kaggle Titanic - Machine Learning from Disaster
-
+Link contest: https://www.kaggle.com/competitions/titanic
 ## 1. Xử lý dữ liệu đầu vào
 Dữ liệu được làm sạch và chuẩn hóa thông qua class `DataProcess` áp dụng cho cả tập `train` và `test`:
 * **Loại bỏ dữ liệu nhiễu:** Xóa các cột `PassengerId`, `Ticket` không mang ý nghĩa phân tích.
