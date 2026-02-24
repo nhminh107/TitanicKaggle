@@ -16,6 +16,7 @@ def main():
     Processer.fillCabinTrain()
     Processer.fillCabinTest()
     Processer.feature_engineering()
+    Processer.convertCabinName()
     Processer.encoder_categorical()
 
     X_train, y_train, X_test = Processer.splitData()

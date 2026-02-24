@@ -13,7 +13,7 @@ class Model:
 
         param_grid = {
             'n_estimators': [100, 200, 300],
-            'max_depth': [5, 10, 15],
+            'max_depth': [5, 10, 15, None],
             'min_samples_split': [2, 5, 10]
         }
 

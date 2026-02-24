@@ -20,6 +20,9 @@ class DataProcess:
         fill_values = self.data['Pclass'].map(self.finalCabinDict)
         self.data['Cabin'] = self.data['Cabin'].fillna(fill_values)
 
+    def convertCabinName(self):
+        self.data['Cabin'] = self.data['Cabin'].str[:1]
+        self.data_test['Cabin'] = self.data_test['Cabin'].str[:1]
     def fillAge(self):
         if self.avgAge == -1: 
             self.avgAge = self.data['Age'].mean()
@@ -28,7 +31,7 @@ class DataProcess:
         self.data_test['Age'] = self.data_test['Age'].fillna(self.avgAge)
     
     def fillCabinTest(self): 
-        fill_values = self.data['Pclass'].map(self.finalCabinDict)
+        fill_values = self.data_test['Pclass'].map(self.finalCabinDict)
         self.data_test['Cabin'] = self.data_test['Cabin'].fillna(fill_values)
 
     def splitData(self): 
@@ -49,7 +52,6 @@ class DataProcess:
             ds['FamilySize'] = ds['SibSp'] + ds['Parch'] + 1
             ds['IsAlone'] = 0
             ds.loc[ds['FamilySize'] == 1, 'IsAlone'] = 1
-
             ds.drop(['Name', 'SibSp', 'Parch'], axis=1, inplace=True, errors='ignore')
     def encoder_categorical(self):
         cols = ['Title', 'Sex', 'Embarked', 'Cabin']
